@@ -1,0 +1,19 @@
+P001: Patient presents with mild hypertension and slightly elevated cholesterol. BMI within normal range. Recommend lifestyle modifications including diet and regular exercise. No significant cardiovascular abnormalities detected on ECG.
+
+P002: 62-year-old female with type 2 diabetes mellitus. Elevated fasting glucose and cholesterol levels noted. Blood pressure readings indicate stage 1 hypertension. Chest X-ray shows mild cardiomegaly. Prescribe metformin and recommend cardiology referral.
+
+P003: Young male patient in good health. All vital signs within normal limits. Recent physical exam unremarkable. Cholesterol and glucose levels optimal. Continue routine annual checkups.
+
+P004: Elderly patient with multiple risk factors including advanced age, hypertension, and hyperglycemia. Family history of cardiovascular disease. Recent stress test showed ST-segment depression. High-risk profile warrants aggressive medical management.
+
+P005: Healthy 29-year-old female. Normal BMI, blood pressure, and metabolic panels. No chronic conditions. Recommended preventive care and healthy lifestyle maintenance.
+
+P006: Obese patient with metabolic syndrome. Elevated BMI, borderline glucose, and hyperlipidemia present. Blood pressure slightly elevated. Recommend weight loss program and lipid-lowering therapy. Schedule follow-up in 3 months.
+
+P007: Middle-aged male with controlled hypertension. Medication adherence good. Recent labs show improvement in lipid profile. Continue current antihypertensive regimen. Annual cardiovascular risk assessment scheduled.
+
+P008: 67-year-old female with poorly controlled diabetes and hypertension. HbA1c 8.2%. Fundoscopic exam reveals early diabetic retinopathy. Referred to endocrinology for insulin initiation. Aggressive BP management required.
+
+P009: Active 34-year-old male presenting for routine physical. All parameters normal. No family history of early cardiovascular disease. Counsel on maintaining healthy lifestyle and smoking cessation if applicable.
+
+P010: Overweight patient with prediabetes and stage 1 hypertension. Recent ASCVD risk score elevated at 12%. Initiated on statin therapy and ACE inhibitor. Lifestyle counseling provided. Require close monitoring and reassessment in 6 months.
