@@ -60,13 +60,13 @@ class CNNEncoder(nn.Module):
             # Remove final FC layer
             self.backbone = nn.Sequential(*list(backbone.children())[:-1])
             backbone_out_dim = 2048  # ResNet50 output dimension
-            print(f"✓ Using ResNet50 from torchvision (output dim: {backbone_out_dim})")
+            print(f"Using ResNet50 from torchvision (output dim: {backbone_out_dim})")
         
         # Freeze backbone if requested
         if freeze_backbone:
             for param in self.backbone.parameters():
                 param.requires_grad = False
-            print(f"✓ Backbone frozen (parameters not trainable)")
+            print(f"Backbone frozen (parameters not trainable)")
         
         # Projection head to desired feature dimension
         self.projection = nn.Sequential(

@@ -1,0 +1,121 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv
+.conda/
+ml_global/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# PyTorch & Deep Learning
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.pkl
+*.pickle
+model_checkpoints/
+checkpoints/
+saved_models/
+*.onnx
+
+# TensorBoard
+runs/
+logs/
+tensorboard/
+
+# Data Files (potentially sensitive medical data)
+data/*.csv
+data/*.png
+data/*.jpg
+data/*.jpeg
+data/*.dcm
+data/*.npy
+data/*.npz
+!data/README.md
+!data/DATA_CONTRACT.md
+
+# Keep sample data for testing
+!data/sample_*.csv
+!data/sample_*.png
+!data/sample_*.txt
+
+# IDE & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.code-workspace
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment Variables
+.env
+.env.local
+*.env
+
+# Weights & Biases
+wandb/
+
+# MLflow
+mlruns/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Testing
+.pytest_cache/
+.tox/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+*.out
+
+# Artifacts directory (conversational AI artifacts)
+.gemini/
+
+# Large files that shouldn't be in git
+*.zip
+*.tar.gz
+*.rar
+
+# Datasets
+datasets/
+raw_data/
+processed_data/
