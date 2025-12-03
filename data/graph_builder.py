@@ -60,7 +60,7 @@ class PatientGraphBuilder:
         # Extract features
         if feature_columns is None:
             # Exclude non-feature columns
-            exclude_cols = ['patient_id', 'label', 'sex']  # sex is categorical
+            exclude_cols = ['patient_id', 'label']  # sex is categorical
             feature_columns = [col for col in df.columns if col not in exclude_cols]
         
         # Build feature matrix, handling special cases
@@ -71,6 +71,10 @@ class PatientGraphBuilder:
                 # Parse blood pressure (format: "130/85" -> [130, 85])
                 bp_values = df[col].str.split('/', expand=True).astype(float).values
                 features_list.append(bp_values)
+            elif col == 'sex':
+                # One-hot encode sex (M -> [1, 0], F -> [0, 1])
+                sex_encoded = pd.get_dummies(df[col], prefix='sex').values
+                features_list.append(sex_encoded)
             else:
                 # Regular numeric column
                 features_list.append(df[[col]].values)
