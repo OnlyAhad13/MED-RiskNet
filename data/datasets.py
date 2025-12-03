@@ -299,3 +299,101 @@ class ImageDataset(Dataset):
             'image': image_tensor,
             'patient_id': patient_id
         }
+
+
+class TextDataset(Dataset):
+    """
+    PyTorch Dataset for medical text reports.
+    
+    Handles:
+    - Loading reports from text file
+    - Parsing patient_id -> report mapping
+    - Handling missing reports
+    
+    Args:
+        report_file: Path to text file with reports (format: "patient_id: report text")
+        patient_ids: List of patient IDs to load
+        max_length: Maximum text length (will be truncated if longer)
+    """
+    
+    def __init__(
+        self,
+        report_file: str,
+        patient_ids: List[str],
+        max_length: int = 512
+    ):
+        self.report_file = Path(report_file)
+        self.patient_ids = patient_ids
+        self.max_length = max_length
+        
+        # Load reports from file
+        self.reports = self._load_reports()
+        
+    def _load_reports(self) -> Dict[str, str]:
+        """
+        Load and parse medical reports from text file.
+        
+        Returns:
+            Dictionary mapping patient_id -> report text
+        """
+        reports = {}
+        
+        if not self.report_file.exists():
+            raise FileNotFoundError(f"Report file not found: {self.report_file}")
+        
+        with open(self.report_file, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Split by double newlines (each report is separated)
+        # Format: "P001: Report text here\n\nP002: Next report..."
+        entries = content.strip().split('\n\n')
+        
+        for entry in entries:
+            entry = entry.strip()
+            if ':' in entry:
+                # Split on first colon
+                parts = entry.split(':', 1)
+                if len(parts) == 2:
+                    patient_id = parts[0].strip()
+                    report_text = parts[1].strip()
+                    
+                    # Remove trailing period if exists
+                    if report_text.endswith('.'):
+                        report_text = report_text[:-1]
+                    
+                    reports[patient_id] = report_text
+        
+        return reports
+    
+    def __len__(self) -> int:
+        """Return the number of reports in the dataset."""
+        return len(self.patient_ids)
+    
+    def __getitem__(self, idx: int) -> Dict[str, str]:
+        """
+        Get a single medical report from the dataset.
+        
+        Args:
+            idx: Index of the sample
+            
+        Returns:
+            Dictionary containing:
+                - 'text': Medical report text
+                - 'patient_id': Patient ID string
+                - 'has_report': Boolean indicating if report exists
+        """
+        patient_id = self.patient_ids[idx]
+        
+        # Get report text (empty string if missing)
+        report_text = self.reports.get(patient_id, "")
+        has_report = patient_id in self.reports
+        
+        # Truncate if too long (simple character-based truncation)
+        if len(report_text) > self.max_length * 5:  # Rough estimate: ~5 chars per token
+            report_text = report_text[:self.max_length * 5]
+        
+        return {
+            'text': report_text,
+            'patient_id': patient_id,
+            'has_report': has_report
+        }
