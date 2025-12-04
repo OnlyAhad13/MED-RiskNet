@@ -31,6 +31,7 @@ ml_global/
 *.h5
 *.pkl
 *.pickle
+test_checkpoints/
 model_checkpoints/
 checkpoints/
 saved_models/
