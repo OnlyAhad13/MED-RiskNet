@@ -400,7 +400,6 @@ If you use MED-RiskNET in your research, please cite:
 @article{medrisknet2025,
   title={MED-RiskNET: Multimodal Medical Risk Prediction with Explainability},
   author={Syed Abdul Ahad},
-  journal={arXiv preprint arXiv:2024.xxxxx},
   year={2025}
 }
 ```
