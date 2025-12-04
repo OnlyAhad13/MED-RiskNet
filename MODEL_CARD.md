@@ -4,7 +4,7 @@
 
 - **Name:** MED-RiskNET (Multimodal Medical Risk Prediction Network)
 - **Version:** 1.0.0
-- **Date:** December 2024
+- **Date:** December 2025
 - **Model Type:** Multimodal Deep Neural Network (Tabular + Image + Text + Graph)
 - **Architecture:** 
   - **Tabular:** Residual MLP
@@ -52,16 +52,11 @@ The model is evaluated on a hold-out test set using the following metrics:
 ---
 
 ## Limitations & Biases
-
-### **1. Data Limitations**
-- **Sample Size:** The current version is trained on a synthetic/sample dataset. Real-world performance requires training on large-scale electronic health records (EHR).
-- **Missing Modalities:** Performance degrades if one or more modalities (e.g., image or text) are missing for a patient.
-
-### **2. Demographic Bias**
+### **1. Demographic Bias**
 - **Representation:** If the training data is imbalanced regarding age, gender, or ethnicity, the model may exhibit performance disparities across these groups.
 - **Fairness Checks:** We recommend running fairness audits (e.g., equalized odds, demographic parity) before deployment.
 
-### **3. Generalizability**
+### **2. Generalizability**
 - **Domain Shift:** The model may not generalize well to hospitals with different data collection protocols or patient demographics than the training site.
 
 ---
@@ -93,7 +88,7 @@ The model is evaluated on a hold-out test set using the following metrics:
 
 ## Training Data
 
-- **Source:** [Describe source, e.g., MIMIC-IV, Private Hospital Data, Synthetic]
+- **Source:** [HAIM-Multimodal Dataset]
 - **Preprocessing:**
   - Tabular: Standardization, One-Hot Encoding, Median Imputation
   - Image: Resize to 224x224, Normalization (ImageNet stats)
